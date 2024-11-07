@@ -1,0 +1,14 @@
+import numpy as np
+
+# Example sales data (3 products, 3 sales each)
+sales_data = np.array([
+    [20, 25, 22],  # Product 1 sales
+    [30, 35, 33],  # Product 2 sales
+    [40, 45, 42]   # Product 3 sales
+])
+
+# Calculate the average price of all products sold
+average_price = sales_data.mean()
+
+# Output the result
+print(f'The average price of all products sold is: ${average_price:.2f}')
