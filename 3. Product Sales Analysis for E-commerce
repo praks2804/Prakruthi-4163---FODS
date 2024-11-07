@@ -1,0 +1,37 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+sales_data = pd.DataFrame({
+    'Date': pd.date_range(start='2024-01-01', periods=12, freq='M'),
+    'Category': ['Electronics', 'Clothing', 'Home'] * 4,
+    'TotalSales': [1000, 1500, 800, 1200, 1700, 900, 1100, 1600, 850, 1300, 1800, 950]
+})
+
+categories = sales_data['Category'].unique()
+
+for category in categories:
+    category_data = sales_data[sales_data['Category'] == category]
+
+    plt.figure(figsize=(10, 5))
+    plt.plot(category_data['Date'], category_data['TotalSales'], label=f'{category} Sales')
+    plt.title(f"Sales Trend for {category}")
+    plt.xlabel("Date")
+    plt.ylabel("Total Sales")
+    plt.legend()
+    plt.show()
+
+    plt.figure(figsize=(10, 5))
+    plt.scatter(category_data['Date'], category_data['TotalSales'], label=f'{category} Sales')
+    plt.title(f"Sales Distribution for {category}")
+    plt.xlabel("Date")
+    plt.ylabel("Total Sales")
+    plt.legend()
+    plt.show()
+
+    total_sales = category_data['TotalSales'].sum()
+    plt.figure(figsize=(5, 5))
+    plt.bar(category, total_sales)
+    plt.title(f"Total Sales by Category")
+    plt.xlabel("Category")
+    plt.ylabel("Total Sales")
+    plt.show()
