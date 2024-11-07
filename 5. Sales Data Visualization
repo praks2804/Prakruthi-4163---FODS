@@ -1,0 +1,19 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.DataFrame({
+    'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    'Sales': [1500, 1800, 1700, 1600, 2000, 2100, 2300, 2200, 2100, 1900, 1800, 1700]
+})
+
+plt.plot(data['Month'], data['Sales'], marker='o', color='b')
+plt.title("Monthly Sales Trend")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
+
+plt.bar(data['Month'], data['Sales'], color='c')
+plt.title("Monthly Sales Distribution")
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.show()
