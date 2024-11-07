@@ -1,0 +1,17 @@
+import pandas as pd
+
+data = pd.DataFrame({
+    'OrderID': [1, 2, 3, 4, 5],
+    'CustomerID': [101, 102, 101, 103, 104],
+    'ProductID': [1001, 1002, 1001, 1003, 1002],
+    'Quantity': [2, 1, 3, 4, 2],
+    'TotalPrice': [20.0, 15.0, 30.0, 40.0, 15.0]
+})
+
+total_quantity_by_product = data.groupby('ProductID')['Quantity'].sum().reset_index()
+total_revenue_by_product = data.groupby('ProductID')['TotalPrice'].sum().reset_index()
+most_frequent_products = data['ProductID'].value_counts().head(10)
+
+print("Total Quantity Sold by Product:\n", total_quantity_by_product)
+print("\nTotal Revenue by Product:\n", total_revenue_by_product)
+print("\nTop 10 Most Frequently Ordered Products:\n", most_frequent_products)
