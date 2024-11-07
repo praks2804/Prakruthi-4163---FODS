@@ -1,0 +1,16 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.DataFrame({
+    'Smoking': [10, 20, 30, 40, 50],
+    'LungCancerRate': [5, 15, 25, 35, 45]
+})
+
+correlation = data['Smoking'].corr(data['LungCancerRate'])
+print("Correlation between smoking and lung cancer rates:", correlation)
+
+plt.scatter(data['Smoking'], data['LungCancerRate'], color='b', alpha=0.6)
+plt.title("Smoking Habits vs Lung Cancer Rates")
+plt.xlabel("Smoking Rate")
+plt.ylabel("Lung Cancer Rate")
+plt.show()
