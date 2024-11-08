@@ -1,0 +1,10 @@
+import numpy as np
+total_sales = np.sum(sales_data)
+
+q1_sales = sales_data[0]  # First quarter sales (index 0)
+q4_sales = sales_data[3]  # Fourth quarter sales (index 3)
+
+percentage_increase = ((q4_sales - q1_sales) / q1_sales) * 100
+
+print(f"Total sales for the year: ${total_sales:.2f}")
+print(f"Percentage increase in sales from Q1 to Q4: {percentage_increase:.2f}%")
