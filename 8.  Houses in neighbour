@@ -1,0 +1,8 @@
+import numpy as np
+
+mask = house_data[:, 1] > 4  # This assumes the number of bedrooms is in column index 1
+
+sale_prices = house_data[mask, -1]  # This assumes sale price is in the last column
+average_sale_price = np.mean(sale_prices)
+
+print(f"Average sale price of houses with more than 4 bedrooms: ${average_sale_price:.2f}")
