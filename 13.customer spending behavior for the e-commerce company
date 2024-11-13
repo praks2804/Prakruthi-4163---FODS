@@ -1,0 +1,14 @@
+import numpy as np
+from scipy import stats
+
+# Example purchase amounts (in dollars)
+purchase_amounts = [20, 35, 50, 20, 40, 50, 20, 100, 75, 50, 20]
+
+# Calculate mean
+mean_purchase = np.mean(purchase_amounts)
+
+# Calculate mode
+mode_purchase = stats.mode(purchase_amounts)
+
+print(f"Mean (Average) Purchase Amount: {mean_purchase}")
+print(f"Mode of Purchase Amounts: {mode_purchase.mode[0]} (Frequency: {mode_purchase.count[0]})")
