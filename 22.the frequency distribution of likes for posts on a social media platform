@@ -1,0 +1,17 @@
+import pandas as pd
+
+# Example dataset: User interaction data including the number of likes per post
+data = {
+    'post_id': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    'likes': [100, 150, 100, 200, 150, 250, 200, 100, 50, 200]
+}
+
+# Create DataFrame from the dataset
+df = pd.DataFrame(data)
+
+# Calculate the frequency distribution of likes
+likes_frequency = df['likes'].value_counts().sort_index()
+
+# Print the frequency distribution of likes
+print("Frequency Distribution of Likes Among Posts:")
+print(likes_frequency)
