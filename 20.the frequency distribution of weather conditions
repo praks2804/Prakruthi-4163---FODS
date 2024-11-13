@@ -1,0 +1,20 @@
+import pandas as pd
+
+# Example dataset: Weather conditions and the number of occurrences
+data = {
+    'WEATHER_CONDITION': ['Sunny', 'Rainy', 'Cloudy', 'Snowy', 'Windy'],
+    'OCCURRENCES': [120, 80, 50, 30, 20]
+}
+
+# Create a DataFrame from the data
+df = pd.DataFrame(data)
+
+# Find the weather condition with the highest number of occurrences
+most_common_weather = df.loc[df['OCCURRENCES'].idxmax()]
+
+# Print the frequency distribution and the most common weather condition
+print("Frequency Distribution of Weather Conditions:")
+print(df)
+
+print("\nMost Common Weather Condition:")
+print(f"{most_common_weather['WEATHER_CONDITION']} with {most_common_weather['OCCURRENCES']} occurrences.")
