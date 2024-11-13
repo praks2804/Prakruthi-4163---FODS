@@ -1,0 +1,20 @@
+import pandas as pd
+
+# Example dataset: Disease names and the number of diagnosed patients
+data = {
+    'DISEASE_NAME': ['Common Cold', 'Diabetes', 'Bronchitis', 'Influenza', 'Kidney Stones'],
+    'DIAGNOSED_PATIENTS': [320, 120, 100, 150, 60]
+}
+
+# Create a DataFrame from the data
+df = pd.DataFrame(data)
+
+# Find the disease with the highest number of diagnosed patients
+most_common_disease = df.loc[df['DIAGNOSED_PATIENTS'].idxmax()]
+
+# Print the frequency distribution and the most common disease
+print("Frequency Distribution of Diseases:")
+print(df)
+
+print("\nMost Common Disease:")
+print(f"{most_common_disease['DISEASE_NAME']} with {most_common_disease['DIAGNOSED_PATIENTS']} patients.")
