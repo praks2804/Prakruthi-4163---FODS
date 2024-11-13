@@ -1,0 +1,16 @@
+import numpy as np
+
+temperatures = [65, 68, 70, 72, 75, 80, 85, 90, 95, 60, 50, 100, 105]
+
+variance = np.var(temperatures)
+print(f"Variance of Daily Temperatures: {variance}")
+
+Q1 = np.percentile(temperatures, 25)
+Q3 = np.percentile(temperatures, 75)
+IQR = Q3 - Q1
+
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+
+outliers = [temp for temp in temperatures if temp < lower_bound or temp > upper_bound]
+print(f"Potential Outliers: {outliers}")
