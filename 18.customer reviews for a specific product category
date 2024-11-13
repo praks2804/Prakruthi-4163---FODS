@@ -1,0 +1,40 @@
+import pandas as pd
+import numpy as np
+import scipy.stats as stats
+
+# Example dataset as a dictionary
+data = {
+    'product_title': ['Pineapple slicer', 'Levis Jeans Pant', 'Wallet', 'Salwar'],
+    'product_category': ['Apparel', 'Apparel', 'Apparel', 'Apparel'],
+    'star_rating': [4, 5, 5, 5],
+    'review_headline': ['Really good', 'Perfect', 'Love it', 'Awesome'],
+    'review_date': ['2013-01-14', '2014-04-22', '2015-07-28', '2015-06-12']
+}
+
+# Create a DataFrame from the dictionary
+df = pd.DataFrame(data)
+
+# Filter data for 'Apparel' category
+apparel_reviews = df[df['product_category'] == 'Apparel']
+
+# Calculate mean and standard deviation of star ratings
+mean_rating = apparel_reviews['star_rating'].mean()
+std_dev = apparel_reviews['star_rating'].std()
+
+# Sample size
+n = len(apparel_reviews)
+
+# Calculate the 95% confidence interval for the mean rating
+confidence_level = 0.95
+z_score = stats.norm.ppf((1 + confidence_level) / 2)
+
+# Margin of error
+margin_of_error = z_score * (std_dev / np.sqrt(n))
+
+# Confidence interval
+ci_lower = mean_rating - margin_of_error
+ci_upper = mean_rating + margin_of_error
+
+# Output results
+print(f"Average Rating for 'Apparel' Category: {mean_rating:.2f}")
+print(f"95% Confidence Interval for the Mean Rating: ({ci_lower:.2f}, {ci_upper:.2f})")
