@@ -1,0 +1,9 @@
+import numpy as np
+
+# Example daily sales data (in units sold)
+daily_sales = [100, 150, 120, 130, 200, 180, 170, 160, 190, 220, 250, 230, 210]
+
+# Calculate the variance of daily sales
+variance = np.var(daily_sales)
+
+print(f"Variance of Daily Sales: {variance:.2f}")
