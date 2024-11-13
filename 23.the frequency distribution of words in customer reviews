@@ -1,0 +1,33 @@
+import pandas as pd
+import string
+from collections import Counter
+
+# Example dataset: Customer reviews
+data = {
+    'review_id': [1, 2, 3, 4],
+    'review_text': [
+        'This product is amazing, I love it!',
+        'The product is good, but could be better.',
+        'Amazing quality, very happy with the purchase.',
+        'Not worth the price, very disappointing.'
+    ]
+}
+
+# Create DataFrame from the dataset
+df = pd.DataFrame(data)
+
+def preprocess_text(text):
+    text = text.lower()  # Convert to lowercase
+    text = text.translate(str.maketrans('', '', string.punctuation))  # Remove punctuation
+    words = text.split()  # Split into words
+    return words
+
+df['processed_review'] = df['review_text'].apply(preprocess_text)
+
+all_words = [word for review in df['processed_review'] for word in review]
+
+word_counts = Counter(all_words)
+
+print("Frequency Distribution of Words in Customer Reviews:")
+for word, count in word_counts.items():
+    print(f"{word}: {count}")
