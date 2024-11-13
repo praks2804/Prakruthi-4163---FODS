@@ -1,0 +1,19 @@
+import pandas as pd
+
+# Example dataset: Sales data including customer age and product purchase details
+data = {
+    'customer_id': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    'age': [25, 34, 28, 45, 34, 23, 35, 40, 25, 29],
+    'product_id': [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
+    'purchase_amount': [200, 150, 300, 120, 250, 180, 350, 220, 190, 210]
+}
+
+# Create DataFrame from the dataset
+df = pd.DataFrame(data)
+
+# Calculate the frequency distribution of ages
+age_frequency = df['age'].value_counts().sort_index()
+
+# Print the frequency distribution of customer ages
+print("Frequency Distribution of Customer Ages:")
+print(age_frequency)
